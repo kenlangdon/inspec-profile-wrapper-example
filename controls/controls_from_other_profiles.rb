@@ -11,7 +11,7 @@ include_controls 'linux-baseline' do
   # run, it can be skipped with the "skip_control" command. In this example,
   # InSpec will not run the "os-05" control from the "linux-baseline" profile
   # even though we've told InSpec to run all controls from "linux-baseline".
-  skip_control 'os-05'
+  skip_control 'os-08'
 
   # Controls from an inherited profile can be modified as well without requiring
   # forking the profile and maintaining a copy. A common use-case is altering
