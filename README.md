@@ -26,6 +26,20 @@ From within a controls file in a profile, the `include_controls` and `require_co
 
 See the `controls/controls_from_other_profiles.rb` file in this example profile for more details and examples on how this works.
 
+## Using Waivers
+
+Available in InSpec verion 4.18.104 and later, Waivers fulfill a purpose of improving skipped controls by allowing the ability to provide a business justification for controls against which they are unable to be compliant. They can also specify an end date to track when a control should be remediated, or leave it blank to make the waiver permanent.  Below is an example format as well as InSpec CLI syntax to reference the waiver file.  When using the Audit cookbook the instructions can be found here: https://github.com/chef-cookbooks/audit#waivers
+
+```yaml
+os-03:
+  expiration_date: 2030-12-31
+  run: false
+  justification: "Not needed until end of 2030 | Steve Monet - Principal Auditor, 2020-04-02"
+```
+To run via the CLI against a Linux target for which you have access with ssh, from the root of the repo:
+
+`inspec exec . -t ssh://user@host --waiver-file waivers.yml`
+
 ## Need more info?
 
 Swing by [inspec.io](https://www.inspec.io) for more information, including [more details on InSpec profiles](https://www.inspec.io/docs/reference/profiles/) and using inheritance.
